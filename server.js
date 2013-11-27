@@ -6,14 +6,13 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test');
-//mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL+'nodejstut');
+mongoose.connect('mongodb://localhost/books');
 
 var app = express();
 
 // all environments
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
-app.set('ip',process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
+app.set('port', 8080);
+app.set('ip','127.0.0.1');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
