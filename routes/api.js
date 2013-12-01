@@ -1,6 +1,5 @@
 var Book = require('../models/book.js');
 
-
 exports.findAll = function(req,res,next){
 	Book.find(function(err,books){
 		res.send({book:books});

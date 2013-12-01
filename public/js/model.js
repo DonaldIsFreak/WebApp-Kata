@@ -4,8 +4,7 @@ App.Book = DS.Model.extend({
 	description: DS.attr('string')
 });
 DS.RESTAdapter.reopen({
-	host: 'http://nodejstut-donaldisfreak.rhcloud.com'
-	//host: 'http://localhost:8080'
+	host: 'http://localhost:8080'
 });
 
 App.Adapter = DS.RESTAdapter.extend({

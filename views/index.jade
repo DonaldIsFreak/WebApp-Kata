@@ -2,26 +2,26 @@ extends layout
 
 block content
   script(type='text/x-handlebars',data-template-name='books')
-    div(class="ui stacked segment") 
-        div(class="ui form segment")
-            div(class="ui three fields")
-                div(class="field")
+    .ui.stacked.segment
+        .ui.form.segment
+            .ui.three.fields
+                .field
                     label ISBN
-                    div(class="ui input")
+                    .ui.input
                         {{input type="text" placeholder="ISBN" value=newISBN}}
-                div(class="field")
+                .field
                     label Title
-                    div(class="ui input")
+                    .ui.input
                         {{input type="text" placeholder="Titile" value=newTitle}}
-                div(class="field")
+                .field
                     label Description
-                    div(class="ui input")
+                    .ui.input
                         {{input type="text" value=newDesc}}
-                div(class='circular ui button',{{action add}}) Add Book
-                    i(class='add icon')
+                .circular.ui.button({{action add}}) Add Book
+                    i.add.icon
 
-    div(class="ui stacked segment")
-        table(class="ui celled table segment")
+    .ui.stacked.segment
+        table.ui.celled.table.segment
             thead
                 tr
                     th ISBN
@@ -37,15 +37,15 @@ block content
                         {{title}}
                     {{#if isEditing}}
                     td
-                        div(class="ui input")
+                        .ui.input
                             {{edit-desc value=description focus-out='update' insert-newline='update'}}
                     {{else}}
                     td 
                         label({{action editDesc}}) {{description}} 
                     {{/if}}
                     td 
-                        div(class="ui circular icon button",{{action remove}})
-                            i(class='red remove icon')
+                        .ui.circular.icon.button({{action remove}})
+                            i.red.remove.icon
                 {{/each}}
 
             
