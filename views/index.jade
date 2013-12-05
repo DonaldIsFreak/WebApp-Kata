@@ -2,6 +2,7 @@ extends layout
 
 block content
   script(type='text/x-handlebars',data-template-name='books')
+
     .ui.stacked.segment
         .ui.form.segment
             .ui.three.fields
@@ -43,9 +44,19 @@ block content
                     td 
                         label({{action editDesc}}) {{description}} 
                     {{/if}}
-                    td 
+                    {{#if isRemoving}}
+                    td
+                        .ui.message
+                            | Really Delete? 
+                            .ui.circular.icon.button({{action confirmRemove}}) 
+                                i.checkmark.icon
+                            .ui.circular.icon.button({{action cancelRemove}})
+                                i.remove.icon
+                    {{else}}
+                    td
                         .ui.circular.icon.button({{action remove}})
-                            i.red.remove.icon
+                            i.trash.icon
+                    {{/if}}
                 {{/each}}
 
             
