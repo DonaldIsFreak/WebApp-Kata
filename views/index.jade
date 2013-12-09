@@ -38,11 +38,11 @@ block content
                         {{title}}
                     {{#if isEditing}}
                     td
-                        .ui.input
+                        .ui.fluid.input
                             {{edit-desc value=description focus-out='update' insert-newline='update'}}
                     {{else}}
                     td 
-                        label({{action editDesc}}) {{description}} 
+                        .ui.labeled.input({{action editDesc}}) {{description}} 
                     {{/if}}
                     {{#if isRemoving}}
                     td
