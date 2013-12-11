@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var superagent = require("superagent");
 var expect = require("expect.js");
-
+var app = require("../server.js");
 
 describe('Checking Express RESTful api server,',function(){
 	var _id='',_isbn = '001',_title='A new books',_description='None';

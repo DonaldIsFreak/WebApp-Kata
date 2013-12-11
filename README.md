@@ -15,12 +15,26 @@ Install neccesary libraries.
 ```
 npm install
 ```
-
 ## How to Run
 
 ```
 node server.js
 ```
+
+## How to Test
+
+```
+npm install -g mocha
+
+mocha
+```
+
+## JSHint
+
+```
+grunt
+```
+
 ## Demo
 
 visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
