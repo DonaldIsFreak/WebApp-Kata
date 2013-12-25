@@ -2,8 +2,6 @@
 
 WebApp-Kata same as Code Kata, only one thing different is built on the Web platform.
 
-WebApp-Kata和Code Kata精神一樣，唯一不同是寫在Web平台上。
-
 ## Prepare
 
 Install MongoDB and turn on the service.
@@ -15,18 +13,18 @@ Install neccesary libraries.
 ```
 npm install
 ```
+
 ## How to Run
 
 ```
-node server.js
+npm start
 ```
-
 ## How to Test
 
 ```
 npm install -g mocha
 
-mocha
+npm start
 ```
 
 ## JSHint
