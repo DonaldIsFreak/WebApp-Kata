@@ -24,7 +24,7 @@ npm start
 ```
 npm install -g mocha
 
-npm start
+npm test 
 ```
 
 ## JSHint
