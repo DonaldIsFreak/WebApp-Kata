@@ -1,7 +1,13 @@
 extends layout
 
 block content
-	.ui.piled.segment 
-		h2 Login 
-		a(href='/auth/google')
-			| Google OpenID
+    .ui.piled.segment
+        .ui.huge.header Login
+        .ui.divided.list
+            .item
+                .content
+                    .header
+                        | Google OpenID
+                        a.circular.ui.icon.button(href='/auth/google')
+                            i.sign.in.icon
+
