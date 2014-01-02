@@ -46,8 +46,9 @@ app.use(express.methodOverride());
 app.use(express.session({secret: 'WebApp-Kata'}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(app.router);
+// Notice: static document url must before router.
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 
 // development only
 if ('development' == app.get('env')) {
@@ -79,7 +80,7 @@ app.get('/auth/google/return',passport.authenticate('google',redirect_config));
 app.get('/login',routes.login);
 
 app.get('/logout',routes.logout);
-
+app.get('*',routes.notpage);
 http.createServer(app).listen(app.get('port'),app.get('ip'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

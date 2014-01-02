@@ -10,27 +10,28 @@ Install MongoDB and turn on the service.
 
 Install neccesary libraries.
 
-```
-npm install
+```shell
+$ npm install
 ```
 
 ## How to Run
 
-```
-npm start
+```shell
+$ npm start
 ```
 ## How to Test
 
-```
-npm install -g mocha
+```shell
+$ npm install -g mocha
+$ npm install -g istanbul
 
-npm test 
+$ npm test
 ```
 
 ## JSHint
 
 ```
-grunt
+$ grunt
 ```
 
 ## Demo

@@ -18,4 +18,8 @@ exports.login = function(req, res){
 exports.logout = function(req, res){
     req.logout();
     res.render('logout',{});
-}
+};
+
+exports.notpage = function(req, res) {
+    res.render('notpage',{});
+};
