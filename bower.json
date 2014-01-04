@@ -1,0 +1,22 @@
+{
+  "name": "WebApp-Kata",
+  "version": "0.0.1",
+  "homepage": "https://github.com/DonaldIsFreak/WebApp-Kata",
+  "authors": [
+    "DonaldIsFreak <ron81018@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "ember": "~1.0.0",
+    "ember-data": "~1.0.0",
+    "handlebars": "~1.0.0"
+  }
+}
