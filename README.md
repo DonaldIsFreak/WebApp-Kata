@@ -12,6 +12,8 @@ Install neccesary libraries.
 
 ```shell
 $ npm install
+$ npm install -g bower
+$ bower install
 ```
 
 ## How to Run
