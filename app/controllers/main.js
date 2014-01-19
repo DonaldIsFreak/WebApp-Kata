@@ -1,12 +1,10 @@
 
-/*
- * GET home page.
- */
+var config = require('../../config/config');
 
 exports.index = function(req, res){
     if (!req.isAuthenticated())
         return res.redirect('/login');
-    res.render('index', { title: 'WebApp-Kata',userName: req.user.displayName || 'Guest' });
+    res.render('index', { title: config.appName ,userName: req.user.displayName || 'Guest' });
 };
 
 exports.login = function(req, res){

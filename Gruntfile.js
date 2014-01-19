@@ -9,8 +9,7 @@ module.exports = function(grunt) {
 			},
 			src: [
 				"server.js",
-				"routes/*.js",
-				"models/*.js",
+				"app/*/*.js",
 				"public/js/*.js",
 				"test/*.js"
 			]
