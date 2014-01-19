@@ -49,15 +49,6 @@ visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 │       ├── includes
 │       └── layouts
 ├── config
-├── coverage
-│   └── lcov-report
-│       └── WebApp-Kata
-│           ├── app
-│           │   ├── controllers
-│           │   └── models
-│           ├── config
-│           ├── models
-│           └── routes
 ├── public
 │   ├── css
 │   ├── fonts
