@@ -40,6 +40,35 @@ $ grunt
 
 visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 
+## Directory structure
+├── app
+│   ├── controllers
+│   ├── models
+│   └── views
+│       ├── includes
+│       └── layouts
+├── config
+├── coverage
+│   └── lcov-report
+│       └── WebApp-Kata
+│           ├── app
+│           │   ├── controllers
+│           │   └── models
+│           ├── config
+│           ├── models
+│           └── routes
+├── public
+│   ├── css
+│   ├── fonts
+│   ├── images
+│   └── js
+│       └── libs
+│           ├── ember
+│           ├── ember-data
+│           ├── handlebars
+│           └── jquery
+└── test
+
 ## License
 
 The MIT license(MIT)
