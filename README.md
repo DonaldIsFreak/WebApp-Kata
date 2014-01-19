@@ -41,6 +41,7 @@ $ grunt
 visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 
 ## Directory structure
+```
 ├── app
 │   ├── controllers
 │   ├── models
@@ -68,7 +69,7 @@ visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 │           ├── handlebars
 │           └── jquery
 └── test
-
+```
 ## License
 
 The MIT license(MIT)
