@@ -1,18 +1,28 @@
 var express = require('express');
 
 module.exports = function(app,config,passport){
-    app.set('port', config.port);
-    app.set('ip',config.ip);
-    app.set('views', config.viewPath);
-    app.set('view engine', config.viewEngine);
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.cookieParser());
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(express.session({secret: config.google.secret}));
-    app.use(passport.initialize());
-    app.use(passport.session());
+    var setConfigs = {
+        'port'          : config.port,
+        'ip'            : config.ip,
+        'views'         : config.viewPath,
+        'view engine'   : config.viewEngine
+    };
+
+    var useConfigs = [
+        express.favicon(),
+        express.logger('dev'),
+        express.cookieParser(),
+        express.bodyParser(),
+        express.session({secret: config.google.secret}),
+        passport.initialize(),
+        passport.session()
+    ];
+    for (var key in setConfigs){
+        app.set(key,setConfigs[key]);
+    }
+    useConfigs.forEach(function(val){
+        app.use(val);
+    });
 
     // Notice: static document url must before router.
     app.use(express.static(config.staticPath));
