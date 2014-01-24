@@ -15,6 +15,8 @@ module.exports = function(app,config,passport){
 
     app.get('/auth/google',passport.authenticate('google',config.redirect));
     app.get('/auth/google/return',passport.authenticate('google',config.redirect));
+    app.get('/auth/facebook',passport.authenticate('facebook'));
+    app.get('/auth/facebook/callback',passport.authenticate('facebook',config.redirect));
     app.get('*',main.notpage);
 
 

@@ -1,5 +1,7 @@
 var util = require('util'),
+    FacebookStrategy = require('passport-facebook').Strategy,
     GoogleStrategy = require('passport-google').Strategy;
+
 
 module.exports = function(config,passport){
 
@@ -23,6 +25,17 @@ module.exports = function(config,passport){
                 profile.identifier = identifier;
                 return done(null,profile);
             });
+        }
+    ));
+
+    passport.use(new FacebookStrategy(
+        {
+            clientID: config.facebook.clientID,
+            clientSecret: config.facebook.clientSecret,
+            callbackURL: "http://localhost:8080/auth/facebook/callback"
+        },
+        function(accessToken,refreshToken,profile,done){
+            done(null,profile);
         }
     ));
 

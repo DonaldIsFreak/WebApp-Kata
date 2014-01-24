@@ -22,6 +22,10 @@ module.exports = {
             secret: 'WebApp-Kata',
             returnURL: 'auth/google/return',
             realm: '/',
+        },
+        facebook: {
+            clientID: '1440790956152522',
+            clientSecret: 'd6c16805945b6841b71b99b0cd920b64'
         }
     },
 
