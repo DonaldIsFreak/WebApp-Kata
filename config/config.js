@@ -8,8 +8,9 @@ module.exports = {
 
     development: {
         db: 'mongodb://localhost/books',
-        port: '8080',
-        ip: '127.0.0.1',
+        port: process.env.PORT || '8080',
+        ip: process.env.IP || '127.0.0.1',
+        hostname: process.env.DNS || 'localhost',
         root: rootPath,
         viewPath: rootPath + '/app/views',
         staticPath: rootPath + '/public',
