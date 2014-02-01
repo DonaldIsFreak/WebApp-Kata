@@ -2,6 +2,14 @@
 
 WebApp-Kata same as Code Kata, only one thing different is built on the Web platform.
 
+I used some packages follow as:
+
++ Backend
+    [Express](http://expressjs.com/)+[MongoDB](http://www.mongodb.org/)
+
++ Frontend
+    [EmberJS](http://emberjs.com/) + [Semantic UI](http://semantic-ui.com/)
+
 ## Prepare
 
 Install MongoDB and turn on the service.
@@ -12,8 +20,10 @@ Install neccesary libraries.
 
 ```shell
 $ npm install
+$ npm install -g mocha
+$ npm install -g istanbul
 $ npm install -g bower
-$ bower install
+$ grunt
 ```
 
 ## How to Run
@@ -24,23 +34,15 @@ $ npm start
 ## How to Test
 
 ```shell
-$ npm install -g mocha
-$ npm install -g istanbul
-
 $ npm test
 ```
 
-## JSHint
-
-```
-$ grunt
-```
-
-## Demo
+## Example
 
 visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 
 ## Directory structure
+
 ```
 ├── app
 │   ├── controllers
@@ -49,18 +51,16 @@ visit [WebApp-Kata at OpenShift](http://nodejstut-donaldisfreak.rhcloud.com/)
 │       ├── includes
 │       └── layouts
 ├── config
-├── public
+├── src
 │   ├── css
-│   ├── fonts
-│   ├── images
 │   └── js
-│       └── libs
-│           ├── ember
-│           ├── ember-data
-│           ├── handlebars
-│           └── jquery
-└── test
+├── test
+└── vendor
+    ├── css
+    ├── fonts
+    └── images
 ```
+
 ## License
 
 The MIT license(MIT)
