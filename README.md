@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/donaldisfreak/webapp-kata.png?label=ready)](https://waffle.io/donaldisfreak/webapp-kata)
 # WebApp-Kata [![Build Status](https://travis-ci.org/DonaldIsFreak/WebApp-Kata.png?branch=master)](https://travis-ci.org/DonaldIsFreak/WebApp-Kata)
 
 WebApp-Kata same as Code Kata, only one thing different is built on the Web platform.
