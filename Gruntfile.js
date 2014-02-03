@@ -6,13 +6,7 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    {
-                        expand: true,
-                        cwd: 'src/',
-                        src: ['**'],
-                        dest: 'public/',
-                    },
-                    {
+                   {
                         expand: true,
                         cwd: 'vendor/',
                         src: ['**'],
@@ -39,21 +33,40 @@ module.exports = function(grunt) {
             }
         },
 
+        concat: {
+            dist: {
+                src: ['src/js/*'],
+                dest: 'public/js/applications.js'
+            }
+        },
+
+        uglify: {
+            target: {
+                options: {
+                },
+                files: {
+                    'public/js/applications.js':['src/js/*']
+                }
+            }
+        },
+
         mochaTest: {
             test: {
-                options: 'spec'
-            },
-            src: [
-                'test/**/*.js'
-            ]
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['test/**/*.js']
+            }
         },
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-bower-task');
 
-    grunt.registerTask('test',['copy','bower','mochaTest']);
-    grunt.registerTask('default',['copy','bower','jshint']);
+    grunt.registerTask('test',['copy','bower','jshint','uglify','mochaTest']);
+    grunt.registerTask('default',['copy','bower','jshint','uglify']);
 };

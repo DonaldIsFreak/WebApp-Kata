@@ -1,3 +1,4 @@
+// Routers
 App.Router.map(function(){
 	this.route('books',{ path : '/'});
 	this.route('detail',{ path : '/detail'});

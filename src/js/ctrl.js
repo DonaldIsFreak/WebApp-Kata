@@ -1,3 +1,4 @@
+// Controllers
 App.BooksController = Ember.ArrayController.extend({
     actions: {
         add: function(){
