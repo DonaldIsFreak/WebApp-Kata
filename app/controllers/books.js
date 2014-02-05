@@ -13,20 +13,27 @@ exports.findByID = function(req,res,next){
 };
 
 exports.post = function(req,res){
-	var book = new Book({title:req.body.book.title,isbn:req.body.book.isbn,description:req.body.book.description});
+	var book = new Book(
+        {
+            title:req.body.book.title,
+            isbn:req.body.book.isbn,
+            description:req.body.book.description
+        }
+    );
 	book.save(function(err,book){
 		res.send({book:book});
 	});
 };
 
 exports.updates = function(req,res,next){
-	Book.update({_id:req.params.id},{$set:{description:req.body.book.description}},function(err,numberAffected,raw){
-		if (err)
-			console.log(err);
-		res.send(200);
-	});
-
-
+	Book.update(
+        {_id:req.params.id},
+        {$set:{description:req.body.book.description}},
+            function(err,numberAffected,raw){
+            if (err)
+                console.log(err);
+            res.send(200);
+	    });
 };
 
 exports.removeByID = function(req,res,next){
