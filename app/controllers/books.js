@@ -13,13 +13,8 @@ exports.findByID = function(req,res,next){
 };
 
 exports.post = function(req,res){
-	var book = new Book(
-        {
-            title:req.body.book.title,
-            isbn:req.body.book.isbn,
-            description:req.body.book.description
-        }
-    );
+    var book = new Book(req.body.book);
+
 	book.save(function(err,book){
 		res.send({book:book});
 	});
@@ -28,8 +23,8 @@ exports.post = function(req,res){
 exports.updates = function(req,res,next){
 	Book.update(
         {_id:req.params.id},
-        {$set:{description:req.body.book.description}},
-            function(err,numberAffected,raw){
+        {$set:req.body.book},
+        function(err,numberAffected,raw){
             if (err)
                 console.log(err);
             res.send(200);

@@ -1,3 +1,4 @@
+// Views
 App.EditDescView = Ember.TextField.extend({
     didInsertElement: function(){
         this.$().focus();
@@ -5,3 +6,4 @@ App.EditDescView = Ember.TextField.extend({
 });
 
 Ember.Handlebars.helper('edit-desc',App.EditDescView);
+
