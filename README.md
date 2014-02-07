@@ -1,14 +1,16 @@
-# WebApp-Kata [![Build Status](https://travis-ci.org/DonaldIsFreak/WebApp-Kata.png?branch=master)](https://travis-ci.org/DonaldIsFreak/WebApp-Kata) [![Stories in Ready](https://badge.waffle.io/donaldisfreak/webapp-kata.png?label=ready)](https://waffle.io/donaldisfreak/webapp-kata) [![Coverage Status](https://coveralls.io/repos/DonaldIsFreak/WebApp-Kata/badge.png)](https://coveralls.io/r/DonaldIsFreak/WebApp-Kata)
+# WebApp-Kata [![Build Status](https://travis-ci.org/DonaldIsFreak/WebApp-Kata.png?branch=master)](https://travis-ci.org/DonaldIsFreak/WebApp-Kata) [![Stories in Ready](https://badge.waffle.io/donaldisfreak/webapp-kata.png?label=ready)](https://waffle.io/donaldisfreak/webapp-kata)
 
 WebApp-Kata same as Code Kata, only one thing different is built on the Web platform.
 
 I used some packages follow as:
 
 + Backend
-    [Express](http://expressjs.com/)+[MongoDB](http://www.mongodb.org/)
+
+[Express](http://expressjs.com/)+[MongoDB](http://www.mongodb.org/)
 
 + Frontend
-    [EmberJS](http://emberjs.com/) + [Semantic UI](http://semantic-ui.com/)
+
+[EmberJS](http://emberjs.com/) + [Semantic UI](http://semantic-ui.com/)
 
 ## Prepare
 
