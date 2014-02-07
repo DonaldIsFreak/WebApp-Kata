@@ -5,7 +5,7 @@ var util = require('util'),
 
 module.exports = function(config,passport){
 
-    var hosts = util.format("http://%s:%s",config.ip,config.port);
+    var hosts = util.format("http://%s:%s",config.hostname,config.port);
 
     // Passport setup
     passport.serializeUser(function(user,done){
