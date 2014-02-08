@@ -6,4 +6,4 @@ var bookSchema = new mongoose.Schema({
 	description: String
 });
 
-module.exports = mongoose.model('Book',bookSchema);
+module.exports = mongoose.model('book',bookSchema);

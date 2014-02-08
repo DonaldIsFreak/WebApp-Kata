@@ -1,40 +1,77 @@
 var model_path = '../models/',models={};
 
-function getModel(name){
-    if (!(name in models))
-        models[name] = require(model_path + name);
+var _getModel = function(container){
+    if (!(container in models)){
+        models[container] = _loadModel(container);
+    }
 
-    return models[name];
-}
+    return models[container].model;
+};
+
+var _getModelName = function(container) {
+    if (!(container in models)){
+        models[container] = _loadModel(container);
+    }
+
+    return models[container].name;
+};
+
+var _loadModel = function(container){
+    // TODO: check file is exist.
+    var model = require(model_path + container);
+    var name = model.modelName.toLowerCase();
+    var result = {
+        name : name,
+        model : model
+    };
+
+    return result;
+};
+
 exports.findAll = function(req,res,next){
     var container = req.params.container;
-    var model = getModel(container);
+    var model = _getModel(container);
 
 	model.find(function(err,objs){
-		res.send({container:objs});
+        var modelName = _getModelName(container);
+        var result = {};
+        result[modelName] = objs;
+		res.send(result);
 	});
 };
 
-exports.findByID = function(req,res,next){
+exports.findById = function(req,res,next){
     var container = req.params.container;
+    var model = _getModel(container);
 
-	model.findOne({_id:req.params.id},function(err,obj){
-		res.send({container:obj});
+	model.findById(req.params.id,function(err,obj){
+        var modelName = _getModelName(container);
+        var result = {};
+        result[modelName] = obj;
+		res.send(result);
 	});
 };
 
-exports.post = function(req,res){
-    var book = new Book(req.body.book);
+exports.createNew = function(req,res){
+    var container = req.params.container;
+    var model = _getModel(container);
+    var modelName = _getModelName(container);
+    var record = new model(req.body[modelName]);
 
-	book.save(function(err,book){
-		res.send({book:book});
+	record.save(function(err,obj){
+        var result = {};
+        result[modelName] = obj;
+
+		res.send(result);
 	});
 };
 
-exports.updates = function(req,res,next){
-	Book.update(
-        {_id:req.params.id},
-        {$set:req.body.book},
+exports.updateById = function(req,res,next){
+    var container = req.params.container;
+    var model = _getModel(container);
+    var modelName = _getModelName(container);
+
+	model.findByIdAndUpdate(req.params.id,req.body[modelName],
         function(err,numberAffected,raw){
             if (err)
                 console.log(err);
@@ -42,10 +79,14 @@ exports.updates = function(req,res,next){
 	    });
 };
 
-exports.removeByID = function(req,res,next){
-	Book.remove({_id:req.params.id},function(err){
-		if (err)
-			next(err);
-        res.send(200);
-	});
+exports.removeById = function(req,res,next){
+    var container = req.params.container;
+    var model = _getModel(container);
+
+	model.findByIdAndRemove(req.params.id,
+        function(err){
+		    if (err)
+			    next(err);
+            res.send(200);
+	    });
 };
