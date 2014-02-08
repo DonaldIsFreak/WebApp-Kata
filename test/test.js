@@ -11,8 +11,8 @@ describe('Checking Express RESTful api server,',function(){
 			.send({
 				book:{
 					isbn : _isbn,
-					title : _title, 
-					description: _description 
+					title : _title,
+					description: _description
 				}
 			})
 			.end(function(e,res){
@@ -28,7 +28,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('retrieves one book info',function(done){
-		superagent.get('http://localhost:8080/books/'+_id)
+		superagent.get('http://localhost:8080/api/books/'+_id)
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.body.book).to.be.an('object');
@@ -65,7 +65,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('check book info after update',function(done){
-		superagent.get('http://localhost:8080/books/'+_id)
+		superagent.get('http://localhost:8080/api/books/'+_id)
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.body.book).to.be.an('object');
