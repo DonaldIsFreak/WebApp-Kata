@@ -6,6 +6,7 @@ App.Book = DS.Model.extend({
 });
 
 DS.RESTAdapter.reopen({
+    namespace : 'api',
 	host: 'http://localhost:8080'
 });
 

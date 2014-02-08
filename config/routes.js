@@ -1,13 +1,13 @@
-var main = require('../app/controllers/main');
-    books = require('../app/controllers/books');
+var main = require('../app/controllers/main'),
+    api = require('../app/controllers/api');
 
 module.exports = function(app,config,passport){
 
-    app.get('/books',books.findAll);
-    app.get('/books/:id',books.findByID);
-    app.post('/books',books.post);
-    app.put('/books/:id',books.updates);
-    app.del('/books/:id',books.removeByID);
+    app.get('/api/:container',api.findAll);
+    app.get('/api/:container/:id',api.findById);
+    app.post('/api/:container',api.createNew);
+    app.put('/api/:container/:id',api.updateById);
+    app.del('/api/:container/:id',api.removeById);
 
     app.get('/',main.index);
     app.get('/login',main.login);

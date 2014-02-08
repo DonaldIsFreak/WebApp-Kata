@@ -7,12 +7,12 @@ describe('Checking Express RESTful api server,',function(){
 	var _id='',_isbn = '001',_title='A new books',_description='None';
 
 	it('post a new book',function(done){
-		superagent.post('http://localhost:8080/books/')
+		superagent.post('http://localhost:8080/api/books/')
 			.send({
 				book:{
 					isbn : _isbn,
-					title : _title, 
-					description: _description 
+					title : _title,
+					description: _description
 				}
 			})
 			.end(function(e,res){
@@ -28,7 +28,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('retrieves one book info',function(done){
-		superagent.get('http://localhost:8080/books/'+_id)
+		superagent.get('http://localhost:8080/api/books/'+_id)
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.body.book).to.be.an('object');
@@ -39,7 +39,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('retrives all books info',function(done){
-		superagent.get('http://localhost:8080/books')
+		superagent.get('http://localhost:8080/api/books')
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.body.book.length).to.be.above(0);
@@ -51,7 +51,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('updates a book info',function(done){
-		superagent.put('http://localhost:8080/books/'+_id)
+		superagent.put('http://localhost:8080/api/books/'+_id)
 			.send({
 				book: {
 					description: 'Modify book description'
@@ -65,7 +65,7 @@ describe('Checking Express RESTful api server,',function(){
 	});
 
 	it('check book info after update',function(done){
-		superagent.get('http://localhost:8080/books/'+_id)
+		superagent.get('http://localhost:8080/api/books/'+_id)
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.body.book).to.be.an('object');
@@ -77,7 +77,7 @@ describe('Checking Express RESTful api server,',function(){
 			});
 	});
 	it('remove a book',function(done){
-		superagent.del('http://localhost:8080/books/'+_id)
+		superagent.del('http://localhost:8080/api/books/'+_id)
 			.end(function(e,res){
 				expect(e).to.eql(null);
 				expect(res.status).to.eql(200);
