@@ -11,6 +11,12 @@ module.exports = function(grunt) {
                         cwd: 'vendor/',
                         src: ['**'],
                         dest: 'public/',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/css/',
+                        src: ['**'],
+                        dest: 'public/css',
                     }
                 ]
             }
