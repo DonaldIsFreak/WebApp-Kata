@@ -79,7 +79,7 @@ module.exports = function(grunt) {
 
             js: {
                 files: ['src/js/*.js','src/js/test/*.js'],
-                tasks: ['copy']
+                tasks: ['jshint','copy','uglify']
             },
         },
     });
@@ -92,6 +92,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-bower-task');
 
-    grunt.registerTask('test',['copy','bower','jshint','uglify','mochaTest']);
-    grunt.registerTask('default',['copy','bower','jshint','uglify']);
+    grunt.registerTask('test',['jshint','copy','bower','uglify','mochaTest']);
+    grunt.registerTask('default',['jshint','copy','bower','uglify']);
 };
