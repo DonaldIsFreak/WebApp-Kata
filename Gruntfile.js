@@ -17,6 +17,12 @@ module.exports = function(grunt) {
                         cwd: 'src/css/',
                         src: ['**'],
                         dest: 'public/css',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/js/test/',
+                        src: ['**'],
+                        dest: 'public/js/test',
                     }
                 ]
             }
@@ -30,6 +36,7 @@ module.exports = function(grunt) {
                 "server.js",
                 "app/*/*.js",
                 "src/js/*.js",
+                "src/js/test/*.js",
                 "test/*.js"
             ]
         },
@@ -51,7 +58,7 @@ module.exports = function(grunt) {
                 options: {
                 },
                 files: {
-                    'public/js/applications.js':['src/js/*']
+                    'public/js/applications.js':['src/js/*.js']
                 }
             }
         },
@@ -64,12 +71,24 @@ module.exports = function(grunt) {
                 src: ['test/**/*.js']
             }
         },
+
+        watch: {
+            options: {
+                livereload: true,
+            },
+
+            js: {
+                files: ['src/js/*.js','src/js/test/*.js'],
+                tasks: ['copy']
+            },
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-bower-task');
 
