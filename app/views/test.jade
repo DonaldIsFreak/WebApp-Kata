@@ -1,11 +1,11 @@
 extends layouts/default
 
 block content
-  script(type="text/x-handlebars",data-template-name="test")
-    h1.welcome| Test EmberJS
-
   #qunit
   #qunit-fixture
+
+  script(type="text/x-handlebars",data-template-name="test")
+    h1.welcome| Test EmberJS
 
   script(src="js/applications.js")
   script(src="js/test/test.js")
