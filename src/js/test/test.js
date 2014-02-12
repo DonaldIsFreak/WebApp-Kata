@@ -2,24 +2,18 @@
 App.setupForTesting();
 
 // Use fixture adapter
-/*
 App.Store = DS.Store.extend({
-    revision: 12,
-    adapter: DS.FixtureAdapter.create({
-        simulateRemoteResponse: false
-    })
+    adapter: 'DS.FixtureAdapter'
 });
-*/
-App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 // Fake dataset
 App.Book.FIXTURES = [
     {
-        id: 1,
+        _id: 1,
         isbn: '001',
         title: 'test001',
         description: 'first'
-    }
+    },
 ];
 
 Ember.Test.registerHelper('assertExists',function(app,selector,times){
@@ -65,10 +59,16 @@ module("Testing Ember Data",{
     },
 });
 test('show get one record',function(){
-    var obj = {
-        get: function(name){
-            return 'test001';
-        }
-    };
+    var obj;
+    Ember.run(function (){
+        store = DS.Store.create({revision: 4});
+        obj = store.createRecord(App.Book,
+            {
+                id: 1,
+                isbn: '001',
+                title: 'test001',
+                description: 'first'
+            });
+    });
     equal(obj.get('title'),'test001','Same tittle');
 });
