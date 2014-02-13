@@ -3,13 +3,13 @@ App.setupForTesting();
 
 // Use fixture adapter
 App.Store = DS.Store.extend({
-    adapter: 'DS.FixtureAdapter'
+    adapter: DS.FixtureAdapter
 });
 
 // Fake dataset
 App.Book.FIXTURES = [
     {
-        _id: 1,
+        id: 1,
         isbn: '001',
         title: 'test001',
         description: 'first'
@@ -70,5 +70,9 @@ test('show get one record',function(){
                 description: 'first'
             });
     });
-    equal(obj.get('title'),'test001','Same tittle');
+    equal(obj.get('title'),'test001','Same title');
+});
+test('check controller',function(){
+    var controller = App.__container__.lookup('controller:book');
+    ok(controller,'controller initial is ok.');
 });
