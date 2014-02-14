@@ -1,10 +1,11 @@
 // Routers
 App.Router.map(function(){
-	this.route('books',{ path : '/'});
+	this.route('index',{ path : '/'});
 	this.route('detail',{ path : '/detail'});
+  this.route('test',{ path: '/test'});
 });
 
-App.BooksRoute = Ember.Route.extend({
+App.IndexRoute = Ember.Route.extend({
 	model: function(params){
 		return this.store.find('book');
 	}

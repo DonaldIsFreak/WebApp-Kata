@@ -1,5 +1,5 @@
 // Controllers
-App.BooksController = Ember.ArrayController.extend({
+App.IndexController = Ember.ArrayController.extend({
     actions: {
         add: function(){
             var title = this.get('newTitle');
