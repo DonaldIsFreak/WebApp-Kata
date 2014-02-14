@@ -12,6 +12,9 @@ module.exports = function(app,config,passport){
     app.get('/',main.index);
     app.get('/login',main.login);
     app.get('/logout',main.logout);
+    app.get('/test',function(req,res){
+        res.render('test');
+    });
 
     app.get('/auth/google',passport.authenticate('google',config.redirect));
     app.get('/auth/google/return',passport.authenticate('google',config.redirect));
