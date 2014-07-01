@@ -21,10 +21,11 @@ Install MongoDB and turn on the service.
 Install neccesary libraries.
 
 ```shell
-$ npm install
 $ npm install -g mocha
 $ npm install -g istanbul
 $ npm install -g bower
+$ npm install -g grunt-cli
+$ npm install
 $ grunt
 ```
 
