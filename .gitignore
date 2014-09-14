@@ -1,5 +1,5 @@
-node_modules/*
-coverage/*
-public/js/libs/*
+node_modules/
+coverage/
+public/
 .editorconfig
 .gitignore
