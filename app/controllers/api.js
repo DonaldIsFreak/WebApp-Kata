@@ -32,24 +32,24 @@ exports.findAll = function(req,res,next){
     var container = req.params.container;
     var model = _getModel(container);
 
-	model.find(function(err,objs){
+    model.find(function(err,objs){
         var modelName = _getModelName(container);
         var result = {};
         result[modelName] = objs;
-		res.send(result);
-	});
+        res.send(result);
+    });
 };
 
 exports.findById = function(req,res,next){
     var container = req.params.container;
     var model = _getModel(container);
 
-	model.findById(req.params.id,function(err,obj){
+    model.findById(req.params.id,function(err,obj){
         var modelName = _getModelName(container);
         var result = {};
         result[modelName] = obj;
-		res.send(result);
-	});
+        res.send(result);
+    });
 };
 
 exports.createNew = function(req,res){
@@ -58,12 +58,12 @@ exports.createNew = function(req,res){
     var modelName = _getModelName(container);
     var record = new model(req.body[modelName]);
 
-	record.save(function(err,obj){
+    record.save(function(err,obj){
         var result = {};
         result[modelName] = obj;
 
-		res.send(result);
-	});
+        res.send(result);
+    });
 };
 
 exports.updateById = function(req,res,next){
@@ -71,22 +71,22 @@ exports.updateById = function(req,res,next){
     var model = _getModel(container);
     var modelName = _getModelName(container);
 
-	model.findByIdAndUpdate(req.params.id,req.body[modelName],
+    model.findByIdAndUpdate(req.params.id,req.body[modelName],
         function(err,numberAffected,raw){
             if (err)
                 console.log(err);
             res.send(200);
-	    });
+        });
 };
 
 exports.removeById = function(req,res,next){
     var container = req.params.container;
     var model = _getModel(container);
 
-	model.findByIdAndRemove(req.params.id,
+    model.findByIdAndRemove(req.params.id,
         function(err){
-		    if (err)
-			    next(err);
+            if (err)
+                next(err);
             res.send(200);
-	    });
+        });
 };
